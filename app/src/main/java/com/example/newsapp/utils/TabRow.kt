@@ -24,11 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.newsapp.R
 import com.example.newsapp.activity.NewsViewModel
-import com.example.newsapp.api.ApiManager
-import com.example.newsapp.constants.Constant
-import com.example.newsapp.fragments.NewsList
-import com.example.newsapp.model.Source
-import com.example.newsapp.model.SourcesResponce
+
 import com.example.newsapp.ui.theme.green
 import retrofit2.Call
 import retrofit2.Response

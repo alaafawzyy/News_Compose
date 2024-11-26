@@ -1,4 +1,4 @@
-package com.example.newsapp.api
+package com.example.newsapp.dataLayer.api
 
 import com.example.newsapp.constants.Constant
 import com.example.newsapp.model.ArticleResponce
@@ -10,16 +10,16 @@ import retrofit2.http.Query
 //بيكون فيها ال api ال هنكلمها
 interface NewsServices {
     @GET("top-headlines/sources") //اسم الفانكشن
-    fun getNewsSources(
+    suspend fun getNewsSources(
         @Query("apiKey") apikey:String=Constant.Api_Key,
-    @Query("category") categoryID:String?
-    ):Call<SourcesResponce>
+    @Query("category") categoryID:String
+    ):SourcesResponce
 
     @GET("everything")
-    fun getNewsArticle(
+   suspend fun getNewsArticle(
         @Query("apiKey") apikey:String=Constant.Api_Key,
-        @Query("sources") sourceid:String
-    ):Call<ArticleResponce>
+        @Query("sources") sourceid:String?
+    ):ArticleResponce
 
     @GET("everything")
     fun getNewsArticleByQuery(

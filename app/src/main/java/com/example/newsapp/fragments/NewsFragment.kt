@@ -11,8 +11,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,12 +23,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.newsapp.R
 import com.example.newsapp.activity.NewsViewModel
-import com.example.newsapp.api.ApiManager
 import com.example.newsapp.constants.Constant
 import com.example.newsapp.model.Article
 import com.example.newsapp.model.ArticleResponce
@@ -43,7 +41,7 @@ import retrofit2.Response
 
 @Composable
 fun NewsFragmentContent(modifier: Modifier = Modifier, categoryId: String) {
-  val viewModel:NewsViewModel= viewModel()
+  val viewModel:NewsViewModel= hiltViewModel()
 
     Column(
         modifier = modifier
@@ -85,7 +83,7 @@ fun NewsList(list:List<Article>) {
                     .aspectRatio(2 / 1F)
                     .clip(RoundedCornerShape(10.dp)))
 
-            Text(text = newsData.source?.name?:"", style = TextStyle(color = lightgray), fontSize = 14.sp,fontWeight = FontWeight.Medium, modifier = Modifier.padding(top = 13.dp))
+           // Text(text = newsData.source?.name?:"", style = TextStyle(color = lightgray), fontSize = 14.sp,fontWeight = FontWeight.Medium, modifier = Modifier.padding(top = 13.dp))
             Text(text = newsData.title?:"", style = TextStyle(color = gray), fontSize = 14.sp, fontWeight = FontWeight.Medium,modifier = Modifier.padding(top = 3.dp))
             Text(text = newsData.publishedAt?:"", style = TextStyle(color = lightgray), fontSize = 14.sp,fontWeight = FontWeight.Medium, modifier = Modifier.align(
                 Alignment.End).padding(top = 4.dp, bottom = 8.dp))
