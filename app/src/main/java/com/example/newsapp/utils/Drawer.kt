@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -24,44 +23,47 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.newsapp.R
-import com.example.newsapp.model.CategoryFragmentScreen
 import com.example.newsapp.ui.theme.green
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.LaunchedEffect
 
 @Composable
-fun NewsDrawerSheet(onSettingClick :()->Unit,onCategoryClick:()->Unit){
-    ModalDrawerSheet(modifier= Modifier.fillMaxWidth(0.7F))
-    {
-        Column (
+fun NewsDrawerSheet(onSettingClick: () -> Unit, onCategoryClick: () -> Unit) {
+    val systemUiController = rememberSystemUiController()
+
+    // تغيير لون شريط الحالة العلوي إلى الأخضر
+    LaunchedEffect(Unit) {
+        systemUiController.setSystemBarsColor(color = green)
+    }
+
+    ModalDrawerSheet(modifier = Modifier.fillMaxWidth(0.7F)) {
+        Column(
             modifier = Modifier
                 .background(green)
                 .fillMaxWidth()
                 .fillMaxHeight(0.2F)
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 16.dp),
-
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
-
-
-        ){
-
-
-            Text(text = stringResource(R.string.newsapp) ,
-                style = TextStyle(color = Color.White, textAlign = TextAlign.Center, fontSize = 28.sp, fontWeight = FontWeight.Bold),
-
+        ) {
+            Text(
+                text = stringResource(R.string.newsapp),
+                style = TextStyle(
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold
                 )
-
+            )
         }
-        DrawerSheetItemTextIcon(icon = R.drawable.ic_category, text =  R.string.categories,
-            onItemClick = {onCategoryClick()})
-        DrawerSheetItemTextIcon(R.drawable.ic_settings, (R.string.settings), onItemClick ={
-            onSettingClick()
-        })
+        DrawerSheetItemTextIcon(icon = R.drawable.ic_category, text = R.string.categories, onItemClick = { onCategoryClick() })
+        DrawerSheetItemTextIcon(R.drawable.ic_settings, R.string.settings, onItemClick = { onSettingClick() })
     }
-
 }
+
 
 
 @Composable

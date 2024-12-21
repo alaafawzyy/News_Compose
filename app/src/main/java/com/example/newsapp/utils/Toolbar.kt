@@ -1,6 +1,7 @@
 package com.example.newsapp.utils
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -29,17 +30,18 @@ fun NewsAppBar(onNavigationItemClick :() ->Unit) {
     TopAppBar(
 
         title = { Text(text = stringResource(R.string.news_app),
-            style = TextStyle(color = Color.White, fontSize = 22.sp, textAlign = TextAlign.Center,),
-            modifier = Modifier.fillMaxWidth()) },
+            style = TextStyle(color = Color.White, fontSize = 22.sp, textAlign = TextAlign.Center),
+          modifier = Modifier.fillMaxWidth()
+        ) },
 
-        modifier = Modifier.clip(RoundedCornerShape(topEnd = 0.dp, topStart = 0.dp, bottomEnd = 35.dp, bottomStart = 35.dp)),
+        modifier = Modifier.clip(RoundedCornerShape(topEnd = 0.dp, topStart = 0.dp, bottomEnd = 25.dp, bottomStart = 25.dp)),
 
         navigationIcon = {
             Image(painter = painterResource( R.drawable.ic_menu),
                 contentDescription = stringResource(R.string.menu_icon),
                 modifier = Modifier
-                    .padding(start = 10.dp)
-                    .size(35.dp)
+                    .padding(start = 12.dp)
+                    .size(25.dp)
                     .clickable {
                         onNavigationItemClick() }) },
 
@@ -47,7 +49,7 @@ fun NewsAppBar(onNavigationItemClick :() ->Unit) {
             Image(painter = painterResource(R.drawable.ic_search),
                 contentDescription = stringResource(R.string.appbar_search),
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.size(30.dp)) },
+                modifier = Modifier.size(20.dp)) },
 
 
         colors = TopAppBarDefaults.topAppBarColors(containerColor = green),

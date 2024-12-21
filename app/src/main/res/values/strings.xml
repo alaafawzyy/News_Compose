@@ -20,4 +20,5 @@
     <string name="general">General</string>
     <string name="science">Science</string>
     <string name="search_hint"></string>
+    <string name="title_activity_news_details">NewsDetailsActivity</string>
 </resources>

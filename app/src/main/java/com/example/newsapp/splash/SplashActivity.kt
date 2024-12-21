@@ -53,15 +53,10 @@ fun SplashScreen(){
          horizontalAlignment = Alignment.CenterHorizontally
      ){
          Spacer(modifier = Modifier.weight(1F))
-         Image(painter = painterResource(R.drawable.logo), contentDescription = stringResource(R.string.app_logo_image),
-             modifier = Modifier.fillMaxHeight(0.35F),
+         Image(painter = painterResource(R.drawable.img), contentDescription = stringResource(R.string.app_logo_image),
+             modifier = Modifier.fillMaxHeight(0.40F),
              contentScale = ContentScale.Crop)
          Spacer(modifier = Modifier.weight(1F))
-         Image(painter = painterResource(R.drawable.appsignature),
-               contentDescription = stringResource(R.string.app_signature),
-               contentScale = ContentScale.Crop,
-               modifier = Modifier.fillMaxWidth(0.5F)
-         )
      }
 }
 @Preview(showBackground = true, showSystemUi = true)
