@@ -6,7 +6,7 @@
 - **JetBack Compose**:
 - **Kotlin**: Main programming language.
 - **Hilt**: Dependency injection.
-- **Retrofit**: API communication.
+- **Retrofit**: API communication
 - **Coroutines & Flow**: Asynchronous programming.
 - **Room Database**: Offline data storage.
 - **MVVM Architecture**: Clean architecture pattern.
